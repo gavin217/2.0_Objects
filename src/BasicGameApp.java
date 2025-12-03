@@ -52,7 +52,7 @@ public class BasicGameApp implements Runnable {
 	public static void main(String[] args) {
 		BasicGameApp ex = new BasicGameApp();   //creates a new instance of the game
 		new Thread(ex).start();                 //creates a threads & starts up the code in the run( ) method  
-	}
+	}//todo make astro and astro2 go in different direction
 
 
    // Constructor Method
@@ -67,6 +67,8 @@ public class BasicGameApp implements Runnable {
       //create (construct) the objects needed for the game and load up 
 		astroPic = Toolkit.getDefaultToolkit().getImage("astronaut.png"); //load the picture
 		astro = new Astronaut(10,100);
+        astro2=new Astronaut(500,500);
+        astro2.dx=-2;
 
 
 
@@ -96,6 +98,7 @@ public class BasicGameApp implements Runnable {
 	{
       //calls the move( ) code in the objects
 		astro.move();
+        astro2.move();
 
 	}
 	
@@ -148,6 +151,8 @@ public class BasicGameApp implements Runnable {
 
       //draw the image of the astronaut
 		g.drawImage(astroPic, astro.xpos, astro.ypos, astro.width, astro.height, null);
+        g.drawImage(astroPic, astro2.xpos, astro2.ypos, astro.width+90, astro.height+90, null);
+
 
 
         //end of drawing things
