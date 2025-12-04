@@ -44,6 +44,12 @@ public class Astronaut {
         if (ypos<0){
             dy=-dy;
         }
+        if (xpos>1000){
+            dx=-dx;
+        }
+        if (ypos>620){
+            dy=-dy;
+        }
 
         xpos = xpos +dx;
         ypos = ypos + dy;
