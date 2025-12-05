@@ -44,10 +44,10 @@ public class Astronaut {
         if (ypos<0){
             dy=-dy;
         }
-        if (xpos>1000){
+        if (xpos>1000-width){
             dx=-dx;
         }
-        if (ypos>620){
+        if (ypos>700-height){
             dy=-dy;
         }
 
