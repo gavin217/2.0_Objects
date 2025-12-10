@@ -96,6 +96,7 @@ public class BasicGameApp implements Runnable {
         astro2.dx=-2;
         astro2.height=100;
         astro2.width=100;
+        aster2.width=120;
 
 
 
