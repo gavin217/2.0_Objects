@@ -77,10 +77,12 @@ public class BasicGameApp implements Runnable {
        //.01-9.999 math random times ten
         //0-9 math random times ten with int
         //1-10 and the final plus one
-        randx=(int)(Math.random()*1000)+1;
+        randx=(int)(Math.random()*900)+1;
 
         //todo make a variable called randy and make range 1-700
         int randy=(int)(Math.random()*600)+1;
+        int randastx=(int)(Math.random()*600)+1;
+        int randasty=(int)(Math.random()*600)+1;
 
 
 
@@ -92,7 +94,7 @@ public class BasicGameApp implements Runnable {
         astro = new Astronaut(10,100);
         astro2=new Astronaut(randx,randy);
         aster=new Asteroid(randx,randy);
-        aster2=new Asteroid(randx,randy);
+        aster2=new Asteroid(randastx,randasty);
         astro2.dx=-2;
         astro2.height=100;
         astro2.width=100;
@@ -181,6 +183,7 @@ public class BasicGameApp implements Runnable {
 
       //draw the image of the astronaut
         g.drawImage(asteroidPic, aster.xpos,aster.ypos,aster.width,aster.height,null);
+        g.drawImage(asteroidPic, aster2.xpos,aster2.ypos,aster2.width,aster.height,null);
 		g.drawImage(astroPic, astro.xpos, astro.ypos, astro.width, astro.height, null);
         g.drawImage(astroPic, astro2.xpos, astro2.ypos, astro2.width, astro2.height, null);
 

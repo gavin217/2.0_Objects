@@ -22,8 +22,9 @@ public class Asteroid {
     public Asteroid(int pXpos, int pYpos) {
         xpos = pXpos;
         ypos = pYpos;
-        dx =7;
-        dy =7;
+        dx =(int)(Math.random()*10)+1;
+        dy =(int)(Math.random()*10)+1;
+
         width = 160;
         height = 160;
 
@@ -33,17 +34,17 @@ public class Asteroid {
 
     //The move method.  Everytime this is run (or "called") the hero's x position and y position change by dx and dy
     public void move() {
-        if(ypos>780){
-            ypos=-80;
+        if(ypos>800){
+            ypos=-100;
         }
-        if (xpos>1080){
-            xpos=-80;
+        if (xpos>1100){
+            xpos=-100;
         }
-        if (ypos<-80){
-            ypos=780;
+        if (ypos<-100){
+            ypos=800;
         }
-        if(xpos<-80){
-            xpos=1080;
+        if(xpos<-100){
+            xpos=1100;
         }
 
         xpos = xpos +dx;
