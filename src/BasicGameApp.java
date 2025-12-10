@@ -39,11 +39,14 @@ public class BasicGameApp implements Runnable {
    
 	public BufferStrategy bufferStrategy;
 	public Image astroPic;
+    public Image asteroidPic;
 
    //Declare the objects used in the program
    //These are things that are made up of more than one variable type
 	private Astronaut astro;
     public Astronaut astro2;
+    public Asteroid aster;
+    public Asteroid aster2;
     //make a new object of Astronaut called astro2
 
 
@@ -77,15 +80,19 @@ public class BasicGameApp implements Runnable {
         randx=(int)(Math.random()*1000)+1;
 
         //todo make a variable called randy and make range 1-700
-        int randy=(int)(Math.random()*700)+1;
+        int randy=(int)(Math.random()*600)+1;
 
 
 
       //variable and objects
       //create (construct) the objects needed for the game and load up 
 		astroPic = Toolkit.getDefaultToolkit().getImage("astronaut.png"); //load the picture
-		astro = new Astronaut(10,100);
+        asteroidPic = Toolkit.getDefaultToolkit().getImage("asteroid.jpeg"); //load the picture
+
+        astro = new Astronaut(10,100);
         astro2=new Astronaut(randx,randy);
+        aster=new Asteroid(randx,randy);
+        aster2=new Asteroid(randx,randy);
         astro2.dx=-2;
         astro2.height=100;
         astro2.width=100;
@@ -119,6 +126,8 @@ public class BasicGameApp implements Runnable {
       //calls the move( ) code in the objects
 		astro.move();
         astro2.move();
+        aster.move();
+        aster2.move();
 
 	}
 	
@@ -170,6 +179,7 @@ public class BasicGameApp implements Runnable {
         //start drawing things
 
       //draw the image of the astronaut
+        g.drawImage(asteroidPic, aster.xpos,aster.ypos,aster.width,aster.height,null);
 		g.drawImage(astroPic, astro.xpos, astro.ypos, astro.width, astro.height, null);
         g.drawImage(astroPic, astro2.xpos, astro2.ypos, astro2.width, astro2.height, null);
 
