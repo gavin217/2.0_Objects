@@ -40,6 +40,7 @@ public class BasicGameApp implements Runnable {
 	public BufferStrategy bufferStrategy;
 	public Image astroPic;
     public Image asteroidPic;
+    public Image backgroundPic;
 
    //Declare the objects used in the program
    //These are things that are made up of more than one variable type
@@ -90,11 +91,11 @@ public class BasicGameApp implements Runnable {
       //create (construct) the objects needed for the game and load up 
 		astroPic = Toolkit.getDefaultToolkit().getImage("astronaut.png"); //load the picture
         asteroidPic = Toolkit.getDefaultToolkit().getImage("asteroid.jpeg"); //load the picture
-
+        backgroundPic = Toolkit.getDefaultToolkit().getImage("stars.jpeg");
         astro = new Astronaut(10,100);
         astro2=new Astronaut(randx,randy);
-        aster=new Asteroid(randx,randy);
-        aster2=new Asteroid(randastx,randasty);
+        aster=new Asteroid(randx,100);
+        aster2=new Asteroid(randastx,100);
         astro2.dx=-2;
         astro2.height=100;
         astro2.width=100;
@@ -144,13 +145,14 @@ public class BasicGameApp implements Runnable {
             astro2.dy=-astro2.dy;
             astro2.isAlive=false;
         }
-        if(aster.asterbox.intersects(aster2.asterbox)){
+        if(aster.asterbox.intersects(aster2.asterbox)&&aster2.isCrashing==false){
             System.out.println("lebonk");
-            aster.dx=-aster.dx;
-            aster.dy=-aster.dy;
-            aster2.dx=-aster2.dx;
-            aster2.dy=-aster2.dy;
+            aster2.height=aster2.height+10;
+            aster2.isCrashing=true;
 
+        }
+        if(aster.asterbox.intersects(aster2.asterbox)){
+            aster2.isCrashing=false;
         }
     }
 	
@@ -200,10 +202,11 @@ public class BasicGameApp implements Runnable {
 		Graphics2D g = (Graphics2D) bufferStrategy.getDrawGraphics();
 		g.clearRect(0, 0, WIDTH, HEIGHT);
         //start drawing things
+    g.drawImage(backgroundPic,0 ,0,WIDTH, HEIGHT,null);
 
-      //draw the image of the astronaut
+        //draw the image of the astronaut
         g.drawImage(asteroidPic, aster.xpos,aster.ypos,aster.width,aster.height,null);
-        g.drawImage(asteroidPic, aster2.xpos,aster2.ypos,aster2.width,aster.height,null);
+        g.drawImage(asteroidPic, aster2.xpos,aster2.ypos,aster2.width,aster2.height,null);
 
             g.drawImage(astroPic, astro.xpos, astro.ypos, astro.width, astro.height, null);
         if (astro2.isAlive==true) {
