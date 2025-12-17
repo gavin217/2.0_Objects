@@ -1,3 +1,5 @@
+import java.awt.*;
+
 public class Asteroid {
     //VARIABLE DECLARATION SECTION
     //Here's where you state which variables you are going to use.
@@ -8,8 +10,8 @@ public class Asteroid {
     public int dy;                    //the speed of the hero in the y direction
     public int width;
     public int height;
-    public boolean isAlive;            //a boolean to denote if the hero is alive or dead.
-
+    public boolean isAlive;//a boolean to denote if the hero is alive or dead.
+    public Rectangle asterbox;
 
     // METHOD DEFINITION SECTION
 
@@ -29,6 +31,7 @@ public class Asteroid {
         height = 160;
 
         isAlive = true;
+        asterbox=new Rectangle(xpos,ypos,width, height);
 
     } // constructor
 
@@ -49,6 +52,8 @@ public class Asteroid {
 
         xpos = xpos +dx;
         ypos = ypos + dy;
+        asterbox=new Rectangle(xpos,ypos,width, height);
+
 
     }
 }

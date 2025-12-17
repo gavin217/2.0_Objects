@@ -144,6 +144,14 @@ public class BasicGameApp implements Runnable {
             astro2.dy=-astro2.dy;
             astro2.isAlive=false;
         }
+        if(aster.asterbox.intersects(aster2.asterbox)){
+            System.out.println("lebonk");
+            aster.dx=-aster.dx;
+            aster.dy=-aster.dy;
+            aster2.dx=-aster2.dx;
+            aster2.dy=-aster2.dy;
+
+        }
     }
 	
    //Pauses or sleeps the computer for the amount specified in milliseconds
