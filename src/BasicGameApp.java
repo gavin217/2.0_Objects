@@ -13,6 +13,8 @@
 
 //Graphics Libraries
 import java.awt.Graphics2D;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.image.BufferStrategy;
 import java.awt.*;
 import javax.swing.JFrame;
@@ -21,8 +23,8 @@ import javax.swing.JPanel;
 
 //*******************************************************************************
 // Class Definition Section
-
-public class BasicGameApp implements Runnable {
+//step 1 implement key listener
+public class BasicGameApp implements Runnable, KeyListener {
 
    //Variable Definition Section
    //Declare the variables used in the program 
@@ -176,7 +178,12 @@ public class BasicGameApp implements Runnable {
    
       // creates a canvas which is a blank rectangular area of the screen onto which the application can draw
       // and trap input events (Mouse and Keyboard events)
-      canvas = new Canvas();  
+      canvas = new Canvas();
+
+
+      //step two add key listener to canvas
+      canvas.addKeyListener(this);
+
       canvas.setBounds(0, 0, WIDTH, HEIGHT);
       canvas.setIgnoreRepaint(true);
    
@@ -222,4 +229,35 @@ public class BasicGameApp implements Runnable {
 
 		bufferStrategy.show();
 	}
+    //step 3 add methods
+    @Override
+    public void keyTyped(KeyEvent e) {
+
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+        System.out.println(e.getKeyCode());
+        if(e.getKeyCode()==38){
+            astro.isNorth=true;
+            System.out.println("goin up");
+            astro.dy=-Math.abs(astro.dy);
+
+        }
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+        System.out.println("i stopped touching");
+        if (e.getKeyCode()==38){
+            System.out.println("not goin up");
+            astro.isNorth=false;
+        }
+    }
+
+
+
+
+
+
 }

@@ -14,6 +14,7 @@ public class Asteroid {
     public Rectangle asterbox;
     public boolean isCrashing;
 
+
     // METHOD DEFINITION SECTION
 
     // Constructor Definition
