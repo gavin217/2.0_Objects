@@ -147,12 +147,12 @@ public class BasicGameApp implements Runnable, KeyListener {
             astro2.dy=-astro2.dy;
             astro2.isAlive=false;
         }
-        if(aster.asterbox.intersects(aster2.asterbox)&&aster2.isCrashing==false){
-            System.out.println("lebonk");
-            aster2.height=aster2.height+10;
-            aster2.isCrashing=true;
+        //if(aster.asterbox.intersects(aster2.asterbox)&&aster2.isCrashing==false){
+           // System.out.println("lebonk");
+            //aster2.height=aster2.height+10;
+           // aster2.isCrashing=true;
 
-        }
+        //}
         if(aster.asterbox.intersects(aster2.asterbox)){
             aster2.isCrashing=false;
         }
@@ -244,6 +244,22 @@ public class BasicGameApp implements Runnable, KeyListener {
             astro.dy=-Math.abs(astro.dy);
 
         }
+        if (e.getKeyCode()==40){
+            astro.isSouth=true;
+            System.out.println("goin down");
+            astro.dy=Math.abs(astro.dy);
+        }
+        if(e.getKeyCode()==39){
+            astro.isEast=true;
+            System.out.println("goin east");
+            astro.dx=Math.abs(astro.dx);
+        }
+       if(e.getKeyCode()==37){
+           astro.isWest=true;
+           System.out.println("goin west");
+           astro.dx=-Math.abs(astro.dx);
+       }
+
     }
 
     @Override
@@ -252,6 +268,21 @@ public class BasicGameApp implements Runnable, KeyListener {
         if (e.getKeyCode()==38){
             System.out.println("not goin up");
             astro.isNorth=false;
+        }
+        if (e.getKeyCode()==40){
+            astro.isSouth=false;
+            System.out.println("not goin down");
+
+        }
+        if(e.getKeyCode()==39){
+            astro.isEast=false;
+            System.out.println("not goin east");
+
+        }
+        if(e.getKeyCode()==37){
+            astro.isWest=false;
+            System.out.println("not goin west");
+
         }
     }
 

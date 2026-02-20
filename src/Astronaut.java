@@ -17,6 +17,9 @@ public class Astronaut {
     public boolean isAlive;            //a boolean to denote if the hero is alive or dead.
     public Rectangle hitbox;
     public boolean isNorth;
+    public boolean isSouth;
+    public boolean isWest;
+    public boolean isEast;
 
     // METHOD DEFINITION SECTION
 
@@ -43,9 +46,23 @@ public class Astronaut {
         if(isNorth==true){
             dy=-2;
         }
-        if(isNorth==false){
+        if(isSouth==true){
+            dy=2;
+        }
+        if(isSouth==false&&isNorth==false){
             dy=0;
         }
+        if(isEast==true){
+            dx=2;
+        }
+        if(isWest==true) {
+        dx=-2;
+        }
+        if(isWest==false&&isEast==false){
+            dx=0;
+        }
+
+
         if (xpos<0){//bounce off left wall
            dx=-dx;
         }
