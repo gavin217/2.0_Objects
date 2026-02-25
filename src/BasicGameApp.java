@@ -310,7 +310,8 @@ public class BasicGameApp implements Runnable, KeyListener, MouseListener {
         if(startHitbox.intersects(pointHitbox)){
             startgame=true;
         }
-
+    astro.dx=-astro.dx;
+        astro.dy=-astro.dy;
     }
 
     @Override
