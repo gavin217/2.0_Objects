@@ -51,6 +51,7 @@ public class BasicGameApp implements Runnable, KeyListener, MouseListener {
     public Astronaut astro2;
     public Asteroid aster;
     public Asteroid aster2;
+    public Asteroid[] asterArray;
     //make a new object of Astronaut called astro2
 
 
@@ -103,6 +104,13 @@ public class BasicGameApp implements Runnable, KeyListener, MouseListener {
         astro2.height=100;
         astro2.width=100;
         aster2.width=120;
+        asterArray=new Asteroid[5];
+        for (int i=0;i<asterArray.length; i++){
+            asterArray[i]=new Asteroid(200,(int)(Math.random()*700)+1);
+            asterArray[i].dx=(int)(Math.random()*10)+1;
+            asterArray[i].dy=(int)(Math.random()*10)+1;
+
+        }
 
 
 
@@ -139,7 +147,11 @@ public class BasicGameApp implements Runnable, KeyListener, MouseListener {
             aster.move();
             aster2.move();
             crashing();
+            for(int o=0;o<asterArray.length;o++){
+                asterArray[o].move();
+            }
         }
+
 
 	}
     public void crashing(){
@@ -227,6 +239,10 @@ public class BasicGameApp implements Runnable, KeyListener, MouseListener {
                 g.drawImage(astroPic, astro2.xpos, astro2.ypos, astro2.width, astro2.height, null);
             }
             g.drawRect(astro.hitbox.x, astro.hitbox.y, astro.width, astro.height);
+            for(int b=0;b< asterArray.length; b++) {
+                g.drawImage(asteroidPic, asterArray[b].xpos, asterArray[b].ypos, asterArray[b].width, asterArray[b].height, null);
+            }
+
         }
         g.setColor(Color.GREEN);
         g.fillRect(100,100,100,100);
