@@ -55,6 +55,7 @@ public class Asteroid {
 
         xpos = xpos +dx;
         ypos = ypos + dy;
+
         asterbox=new Rectangle(xpos,ypos,width, height);
        // isCrashing=new Boolean(false);
 

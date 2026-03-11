@@ -164,12 +164,15 @@ public class BasicGameApp implements Runnable, KeyListener, MouseListener {
             astro2.dy=-astro2.dy;
             astro2.isAlive=false;
         }
-        //if(aster.asterbox.intersects(aster2.asterbox)&&aster2.isCrashing==false){
-           // System.out.println("lebonk");
-            //aster2.height=aster2.height+10;
-           // aster2.isCrashing=true;
 
-        //}
+        for(int x=0;x<asterArray.length;x++) {
+            if (asterArray[x].asterbox.intersects(astro.hitbox)){
+                System.out.println("crash");
+
+
+            }
+        }
+
         if(aster.asterbox.intersects(aster2.asterbox)){
             aster2.isCrashing=false;
         }
